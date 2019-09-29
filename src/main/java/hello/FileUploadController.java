@@ -77,38 +77,9 @@ public class FileUploadController {
 
 	@GetMapping("/")
 	public String listUploadedFiles(Model model) throws IOException {
-
-		//		model.addAttribute("files", storageService.loadAll().map(
-		//				path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
-		//						"serveFile", path.getFileName().toString()).build().toString())
-		//				.collect(Collectors.toList()));
-
 		LOG.info("homepage is called");
-
 		return "index";
 	}
-
-	//	@GetMapping("/files/{filename:.+}")
-	//	@ResponseBody
-	//	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-	//
-	//		Resource file = storageService.loadAsResource(filename);
-	//		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
-	//				"attachment; filename=\"" + file.getFilename() + "\"").body(file);
-	//	}
-
-	//	@PostMapping("/")
-	//	public String handleFileUpload(@RequestParam("file") MultipartFile file,
-	//			RedirectAttributes redirectAttributes) {
-	//
-	//		LOG.info("Uploading a file ");
-	//
-	//		storageService.store(file);
-	//		redirectAttributes.addFlashAttribute("message",
-	//				"You successfully uploaded " + file.getOriginalFilename() + "!");
-	//
-	//		return "redirect:/";
-	//	}
 
 	@RequestMapping(value = "/magic", method = RequestMethod.POST)
 	public @ResponseBody String uploadImage2(@RequestParam("image_key") String imageValue,
