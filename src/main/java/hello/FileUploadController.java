@@ -106,8 +106,8 @@ public class FileUploadController {
 			File workingDirectory = new File("upload-dir");
 
 			ProcessBuilder processBuilder = new ProcessBuilder().directory(workingDirectory);
-			processBuilder.command("cmd.exe", "/c", "python process.py " + imageName);
-			//			processBuilder.command("/bin/bash", "-c", "python process.py " + imageName);
+			//			processBuilder.command("cmd.exe", "/c", "python process.py " + imageName);
+			processBuilder.command("/bin/bash", "-c", "python process.py " + imageName);
 			Process process = processBuilder.start();
 			int exitCode = process.waitFor(); // returns 0 on success, 1 on failure
 
